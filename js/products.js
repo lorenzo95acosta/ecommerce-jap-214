@@ -8,7 +8,7 @@ var currentProductsArray = [];
 function listaProductos(lista){
 
     let htmlContentToAppend = "";
-    for(productos in lista){
+    for(let productos in lista){
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
@@ -20,7 +20,7 @@ function listaProductos(lista){
                             <h4 class="mb-1">`+ productos.name +`</h4>
                             <small class="text-muted">Ya se vendieron ` + productos.soldCount + ` iguales.</small>
                         </div>
-                        <p class="mb-1">` +productos.description + `</p>
+                        <p class="mb-1">` + productos.description + `</p>
                     </div>
                 </div>
             </a>
