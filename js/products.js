@@ -8,7 +8,7 @@ var currentProductsArray = [];
 function listaProductos(lista){
 
     let htmlContentToAppend = "";
-    for(let productos in lista){
+    for(let productos of lista){
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
@@ -30,7 +30,7 @@ function listaProductos(lista){
     document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function (e){
         //Obtengo la info y la despliego <=> todo está bien
         getJSONData(PRODUCTS_URL).then(function(resultObj){
                 if(resultObj.status === "ok"){
