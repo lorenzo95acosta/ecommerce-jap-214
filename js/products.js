@@ -2,8 +2,10 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+var currentProductsArray = [];
+
 //Funcion para listar los productos
-function listaProductos(){
+function listaProductos(lista){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < currentCategoriesArray.length; i++){
@@ -16,22 +18,21 @@ function listaProductos(){
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
-                        <img src="` + product.images[1] + `" alt="` + product.description + `" class="img-thumbnail">
+                        <img src="` + productos.images + `" alt="` + productos.description + `" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            <small class="text-muted">Ya se vendieron ` + category.soldCount + ` iguales.</small>
+                            <h4 class="mb-1">`+ productos.name +`</h4>
+                            <small class="text-muted">Ya se vendieron ` + productos.soldCount + ` iguales.</small>
                         </div>
-                        <p class="mb-1">` +product.description + `</p>
+                        <p class="mb-1">` +productos.description + `</p>
                     </div>
                 </div>
             </a>
             `
         }
 
-        document.getElementById("container p-5").innerHTML = htmlContentToAppend;
-    }
+    document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
