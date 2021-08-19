@@ -1,3 +1,7 @@
+if ((sessionStorage.usuario.value === undefined) || (sessionStorage.contraseña.value === undefined)){
+  window.location.href = "login.html";
+}
+
 const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
@@ -39,6 +43,7 @@ var getJSONData = function(url){
         return result;
     });
 }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

@@ -29,7 +29,9 @@
 
   </div>
 </div>
-*/
+
+
+
 
 function crearLogin(){
     //Localizo el div donde voy a crear el login y le cambio la clase
@@ -69,7 +71,7 @@ function crearLogin(){
     contraseña.className = "fadeIn third";
     contraseña.placeholder = "Contraseña";
     let boton = document.createElement("input");
-    boton.typ = "submit";
+    boton.type = "submit";
     boton.className = "fadeIn fourth";
     boton.value = "Ingresar";
     formulario.appendChild(mail);
@@ -83,6 +85,10 @@ function crearLogin(){
     inicio.appendChild(olvido);
     inicio.appendChild(formulario);
 }
+*/
+
+
 
 document.addEventListener("DOMContentLoaded", function(e){
+  //crearLogin();
 });
