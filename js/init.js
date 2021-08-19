@@ -1,4 +1,4 @@
-if ((sessionStorage.usuario.value === undefined) || (sessionStorage.contraseña.value === undefined)){
+if ((sessionStorage.usuario === undefined) || (sessionStorage.contraseña === undefined)){
   window.location.href = "login.html";
 }
 
