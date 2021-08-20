@@ -5,28 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/login.css">
-  <title>Document</title>
+  <title>eMercado - Login</title>
 </head>
 <body>
 	<div class="login">
 		<div class="login-screen">
-			<div class="app-title">
-				<h1>Login</h1>
-			</div>
+			<img src="img/login.png" class="img" alt="Jovenes a Programar">
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" id="login-name">
-				<label class="login-field-icon fui-user" for="login-name"></label>
+				<input type="text" class="login-field" placeholder="Usuario" id="usuario">
+				<label class="login-field-icon fui-user" for="usuario"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				<input type="text" class="login-field" placeholder="Contraseña" id="contraseña">
+				<label class="login-field-icon fui-lock" for="contraseña"></label>
 				</div>
 
-				<a class="btn btn-primary btn-large btn-block" href="#">login</a>
-				<a class="login-link" href="#">Lost your password?</a>
+				<input type="button" class="btn btn-primary btn-large btn-block" id="boton-ingresar" value="Ingresar">
+				<!--Link a futura funcionalidad de la pagina del LOGIn-->
+				<a class="login-link" href="#">Recuperar contraseña</a>
 			</div>
 		</div>
 	</div>

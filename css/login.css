@@ -7,7 +7,7 @@
   }
   body {
   font-family: Arial;
-  background-color: #3498DB;
+  background-color: #f8f9fa;
   padding: 50px;
   }
   .login {
@@ -15,9 +15,10 @@
   width: 300px;
   }
   .login-screen {
-  background-color: #FFF;
+  background-color: rgb(255, 255, 255);
   padding: 20px;
-  border-radius: 5px
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgb(128, 128, 128);
   }
   
   .app-title {
@@ -75,4 +76,12 @@
     color: #444;
     display: block;
     margin-top: 12px;
+  }
+
+  .img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: auto;
   }
