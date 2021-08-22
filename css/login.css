@@ -7,6 +7,8 @@
   }
   body {
   font-family: Arial;
+  background-image: url(../img/wplog.jpg);
+  /*Background color se usa en caso de que no se encuentre la imagen*/
   background-color: #f8f9fa;
   padding: 50px;
   }
@@ -15,10 +17,10 @@
   width: 300px;
   }
   .login-screen {
-  background-color: rgb(255, 255, 255);
+  background-color: #fbfbfb;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 10px 10px 20px rgb(128, 128, 128);
+  box-shadow: 10px 10px 20px rgb(82, 80, 80);
   }
   
   .app-title {

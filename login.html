@@ -15,19 +15,19 @@
 			<div class="login-form">
 				<form id="formulario">
 					<div class="control-group">
-						<input type="text" class="login-field" placeholder="Usuario" id="usuario">
+						<input type="text" class="login-field" placeholder="Usuario" id="usuario" required>
 						<label class="login-field-icon fui-user" for="usuario"></label>
 						</div>
 		
 						<div class="control-group">
-						<input type="password" class="login-field" placeholder="Contraseña" id="contraseña">
+						<input type="password" class="login-field" placeholder="Contraseña" id="contraseña" required>
 						<label class="login-field-icon fui-lock" for="contraseña"></label>
 						</div>
 				</form>
 
 				<input type="button" class="btn btn-primary btn-large btn-block" id="boton-ingresar" value="Ingresar">
 				<!--Link a futura funcionalidad de la pagina del LogIn-->
-				<a class="login-link" href="#">Recuperar contraseña</a>
+				<a class="login-link" href="#" onclick="recuperarContraseña()">Recuperar contraseña</a>
 			</div>
 		</div>
 	</div>
