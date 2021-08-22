@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/login.css">
   <title>eMercado - Login</title>
+  <!--Script de Google-->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="195778192449-4v6h391v4nvf71k0q9p0hgl8hqf69ckt.apps.googleusercontent.com">
 </head>
 <body>
 	<div class="login">
@@ -28,6 +31,12 @@
 				<input type="button" class="btn btn-primary btn-large btn-block" id="boton-ingresar" value="Ingresar">
 				<!--Link a futura funcionalidad de la pagina del LogIn-->
 				<a class="login-link" href="#" onclick="recuperarContraseña()">Recuperar contraseña</a>
+				<!--
+							Botón brindado por google para login
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+							Botón brindado por google para logout
+					<a class="login-link" href="#" onclick="signOut();">Salir</a>
+				-->
 			</div>
 		</div>
 	</div>

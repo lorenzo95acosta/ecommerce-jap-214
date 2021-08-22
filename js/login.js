@@ -19,6 +19,26 @@ function recuperarContraseña(){
     alert("Futura funcionalidad a integrar en el eMercado");
 }
 
+//Scripts de google para obtener la información del usuario.
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); 
+    //Se envia mediante tokens para asegurar la seguridad de los datos del cliente
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log(id_token);
+  }
+
+  //Funcion para hacer log-out
+  function signOut(){
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("boton-ingresar").addEventListener("click", function(event){
         validacion();
