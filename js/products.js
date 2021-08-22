@@ -21,6 +21,8 @@ function listaProductos(lista){
                             <small class="text-muted">Ya se vendieron ` + productos.soldCount + ` iguales.</small>
                         </div>
                         <p class="mb-1">` + productos.description + `</p>
+                        <br>
+                        <h4 class="mb-1" style="text-align:right">`+ productos.currency + productos.cost  +`</h4>
                     </div>
                 </div>
             </a>
