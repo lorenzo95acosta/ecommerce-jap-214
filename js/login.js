@@ -7,8 +7,8 @@ function validacion(){
     let user = document.getElementById("usuario").value;
     let password = document.getElementById("contraseña").value;
     if((user !== "")&&(password !== "")){
-        sessionStorage.setItem('usuario', user);
-        sessionStorage.setItem('contraseña', password);
+        localStorage.setItem('usuario', user);
+        localStorage.setItem('contraseña', password);
         window.location.href = 'index.html';
     }else{
         alert("Ninguno de los campos puede permanecer sin completar")
