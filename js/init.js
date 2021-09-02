@@ -1,4 +1,4 @@
-if ((sessionStorage.usuario === undefined) || (sessionStorage.contraseña === undefined)){
+if ((localStorage.usuario === undefined) || (localStorage.contraseña === undefined)){
   window.location.href = "login.html";
 }
 
@@ -45,10 +45,9 @@ var getJSONData = function(url){
 }
 
 function mostrarUsuario(){
-let nombre = sessionStorage.getItem('usuario');
+let nombre = localStorage.getItem('usuario');
 let usuario = document.getElementById("info_usuario");
 usuario.innerHTML = nombre;
-
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
