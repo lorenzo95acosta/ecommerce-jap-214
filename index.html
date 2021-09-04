@@ -23,31 +23,14 @@
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         
         <!--Searchbar-->
-        <div class="dropdown">
-          <button class="btn btn-outline-secondary" type="button"  data-toggle="dropdown"> 
-              <!--Codigo obtenido de la tabla de Unicode https://unicode-table.com/en/-->
-              <!--Lo que hace  SVG(scalable vector graphics)  permite crear la imagne de la lupa en el buscador con texto -->
-              <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8.78439" cy="8.78436" r="6" stroke="white" stroke-width="3"></circle>
-              <rect x="11.3459" y="13.4158" width="3" height="8.80485" rx="1.5" transform="rotate(-45 11.3459 13.4158)" fill="white"></rect>
-              </svg>
-        </button>
-          <div class="dropdown-menu" >
-            <form class="form-inline mt-2 mt-md-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Search" style="border: none; width: 210px;">
-            </form>
-          </div>
+        <div id="searchbar">
+            <!--Acá voy a crear el searchbar-->
         </div>
-        
 
         <!--Info del Usuario (Dropdown obtenido de boostrap)-->
-        <div class="dropdown">
-          <button  id="info_usuario" class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          </button>
-          <div class="dropdown-menu" >
-            <a class="dropdown-item" href="login.html" onclick="signOut()">Salir</a>
-          </div>
-        </div>
+       <div id="menu_usuario">
+          <!--Acá voy a crear el botón para el nombre de usuario-->
+       </div>
 
       </div>
     </nav>
