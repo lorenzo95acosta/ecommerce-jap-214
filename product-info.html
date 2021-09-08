@@ -23,17 +23,59 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+      <!--Searchbar-->
+      <div id="searchbar">
+          <!--Acá voy a crear el searchbar-->
+      </div>
+
+      <!--Info del Usuario (Dropdown obtenido de boostrap)-->
+     <div id="menu_usuario">
+        <!--Acá voy a crear el botón para el nombre de usuario-->
+     </div>
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  
+  <!--Este nuevo main es donde se va a mostrar la info del producto-->
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+      <!--El nombre del producto lo cargo desde la info del JSON-->
+        <h2 id="nombrProducto">CHEVROLET ONIX 1.0</h2>
     </div>
-  </div>
-  <footer class="text-muted">
+    <!--Container donde agrupo las diferentes secciones-->
+    <div  class="container  containerProduct" id="containerProducto" style="width: 50%;">
+        <div id="imagenesProductos">
+          <!--Acá se muestran las imagenes, se usa carousel de Boostrap-->
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item active">
+                <img src="img/prod1_1.jpg" class="d-block w-100">
+              </div>
+              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item">
+                <img src="img/prod1_2.jpg" class="d-block w-100">
+              </div>
+              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item">
+                <img src="img/prod1_3.jpg" class="d-block w-100">
+              </div>
+              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item">
+                <img src="img/prod1_4.jpg" class="d-block w-100">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+          </div>
+        </div>
+    </div>
+</main>
+  
+  <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
@@ -42,18 +84,11 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
+  <script src="js/products.js"></script>
 </body>
 
 </html>
