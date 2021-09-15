@@ -144,4 +144,5 @@ a.custom-card:hover {
   padding: 5px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgb(151, 148, 148);
+  margin-bottom: 20px;
 }
