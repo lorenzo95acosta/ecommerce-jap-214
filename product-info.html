@@ -39,53 +39,20 @@
   
   <!--Este nuevo main es donde se va a mostrar la info del producto-->
   <main role="main" class="pb-5">
-    <div class="text-center p-4">
-      <!--El nombre del producto lo cargo desde la info del JSON-->
-        <h2 id="nombrProducto">CHEVROLET ONIX 1.0</h2>
+
+    <!--Acá se guarda la info del producto-->
+    <div id='info-producto'>
     </div>
-    <!--Container donde agrupo las diferentes secciones-->
-    <div  class="container  containerProduct" id="containerProducto" style="width: 50%;">
-        <div id="imagenesProductos">
-          <!--Acá se muestran las imagenes, se usa carousel de Boostrap-->
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item active">
-                <img src="img/prod1_1.jpg" class="d-block w-100">
-              </div>
-              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item">
-                <img src="img/prod1_2.jpg" class="d-block w-100">
-              </div>
-              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item">
-                <img src="img/prod1_3.jpg" class="d-block w-100">
-              </div>
-              <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item">
-                <img src="img/prod1_4.jpg" class="d-block w-100">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Siguiente</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Anterior</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="container  containerProduct">
-        <div class="container">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-        </div>
-        <hr>
-        <div>
-          <p>Comentario</p>
-        </div>
-      </div>
+    
+    <!--Acá se mustran los comentarios-->
+    <div id='comentario'>
+    </div>
+
+    <!--Acá se crean los comentarios-->
+    <div id='crear-comentario'>
+    </div>
+
+
     </div>
     
 </main>
@@ -103,7 +70,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
+  <script src="js/product-info.js"></script>
 </body>
 
 </html>
