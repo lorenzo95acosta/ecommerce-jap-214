@@ -116,14 +116,11 @@ function mostrarComentario(comentarios){
     contenedor.innerHTML += comentarioHtml;
 }
 
+
 //Obtengo los datos del comentario, para agregarlo a mi lista de comentarios existentes
 function recibirComentario(){
     
 }
-
-
-
-
 
 
 document.addEventListener("DOMContentLoaded", function(e){

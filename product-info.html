@@ -23,40 +23,58 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      
+
       <!--Searchbar-->
       <div id="searchbar">
-          <!--Acá voy a crear el searchbar-->
+        <!--Acá voy a crear el searchbar-->
       </div>
 
       <!--Info del Usuario (Dropdown obtenido de boostrap)-->
-     <div id="menu_usuario">
+      <div id="menu_usuario">
         <!--Acá voy a crear el botón para el nombre de usuario-->
-     </div>
+      </div>
 
     </div>
   </nav>
-  
+
   <!--Este nuevo main es donde se va a mostrar la info del producto-->
   <main role="main" class="pb-5">
 
     <!--Acá se guarda la info del producto-->
     <div id='info-producto'>
     </div>
-    
+
+    <!--Acá se crean los comentarios-->
+    <div id='crear-comentario' class="container containerProduct">
+      <form id="caja-comentarios">
+        <div class="form-group">
+          <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <textarea class="form-control" id="texto-comentario" rows="3"></textarea>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <button type="submit" class="btn btn-secondary">Comentar!</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
     <!--Acá se mustran los comentarios-->
     <div id='comentario'>
     </div>
 
-    <!--Acá se crean los comentarios-->
-    <div id='crear-comentario'>
     </div>
 
+  </main>
 
-    </div>
-    
-</main>
-  
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
@@ -66,7 +84,14 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
