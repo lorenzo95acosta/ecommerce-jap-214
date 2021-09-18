@@ -2,6 +2,8 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+var listaComentarios =[];
+
 //Muestra la informacion del JSON (imagenes, puntuacion)
 function mostrarInfoProducto(producto){
     let infoProducto = ``;
@@ -120,7 +122,24 @@ function mostrarComentario(comentarios){
 
 //Obtengo los datos del comentario, para agregarlo a mi lista de comentarios existentes
 function recibirComentario(){
-   
+    let date = new Date();
+    let formatDate = date.getDate().toString().padStart(2, '0') + "/" + (date.getMonth() +1).toString().padStart(2, '0') + "/" + date.getFullYear().toString() + "  " + date.getHours() + ":" + date.getMinutes();
+    let description = document.getElementById("texto-comentario").value;
+    let score = document.getElementById("puntuacion").value;
+    let usuario = localStorage.getItem("usuario");
+    
+    let comentarioHtml = `
+        <div class="container  containerProduct">`;
+        comentarioHtml += puntuacionHtml(score);
+        comentarioHtml += `<p>`+formatDate+`</p>
+        <div>
+            <p>`+usuario+`</p>
+            <p>`+description+`</p>
+            </div>
+        </div>
+        `;
+    let contenedor = document.getElementById('comentario');
+    contenedor.innerHTML += comentarioHtml;
 }
 
 

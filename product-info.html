@@ -49,18 +49,21 @@
       <form id="caja-comentarios">
         <div class="form-group">
           <div id="estrellas">
-            <span class="fa fa-star checked" valor="1"></span>
-            <span class="fa fa-star checked" valor="2"></span>
-            <span class="fa fa-star checked" valor="3"></span>
-            <span class="fa fa-star" valor="4"></span>
-            <span class="fa fa-star" valor="5"></span>
+            <label for="puntuacion">Puntuación</label>
+                <select class="form-control" id="puntuacion">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
           </div>
           <textarea class="form-control" id="texto-comentario" rows="3"></textarea>
         </div>
         <div class="container">
           <div class="row">
             <div class="col text-center">
-              <button type="submit" class="btn btn-secondary">Comentar!</button>
+              <button type="submit" class="btn btn-secondary"  id="comentar" onclick="recibirComentario()">Comentar!</button>
             </div>
           </div>
         </div>
