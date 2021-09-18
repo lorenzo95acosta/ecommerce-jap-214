@@ -104,6 +104,7 @@ function mostrarComentario(comentarios){
         comentarioHtml += `
         <div class="container  containerProduct">`;
         comentarioHtml += puntuacionHtml(comentario.score);
+        comentarioHtml += `<p>${comentario.dateTime}</p>`;
         comentarioHtml += `
         <div>
             <p>${comentario.user}</p>
@@ -119,8 +120,9 @@ function mostrarComentario(comentarios){
 
 //Obtengo los datos del comentario, para agregarlo a mi lista de comentarios existentes
 function recibirComentario(){
-    
+   
 }
+
 
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -137,6 +139,4 @@ document.addEventListener("DOMContentLoaded", function(e){
             mostrarComentario(resultObj.data);
         }
     })
-
-
 });
