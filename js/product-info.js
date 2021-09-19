@@ -141,6 +141,7 @@ function recibirComentario(){
     `
     let contenedor = document.getElementById('comentario-reciente');
     contenedor.innerHTML += comentarioHtml;
+    document.getElementById("caja-comentarios").reset()
 }
 
 
