@@ -123,28 +123,32 @@ function mostrarComentario(comentarios){
 //Obtengo los datos del comentario, para agregarlo a mi lista de comentarios existentes
 function recibirComentario(){
     let date = new Date();
-    let formatDate = date.getDate().toString().padStart(2, '0') + "/" + (date.getMonth() +1).toString().padStart(2, '0') + "/" + date.getFullYear().toString() + "  " + date.getHours() + ":" + date.getMinutes();
-    let description = document.getElementById("texto-comentario").value;
-    let score = document.getElementById("puntuacion").value;
+    let formatDate = date.getDate().toString().padStart(2, '0') + "-" + (date.getMonth() +1).toString().padStart(2, '0') + "-" + date.getFullYear().toString() + "  " + date.getHours().toString() + ":" + date.getMinutes().toString()  + ":" + date.getSeconds().toString();
+    let descripcion = document.getElementById("texto-comentario").value;
+    let puntuacion = document.getElementById("puntuacion").value;
     let usuario = localStorage.getItem("usuario");
-    
-    let comentarioHtml = `
-        <div class="container  containerProduct">`;
-        comentarioHtml += puntuacionHtml(score);
-        comentarioHtml += `<p>`+formatDate+`</p>
-        <div>
-            <p>`+usuario+`</p>
-            <p>`+description+`</p>
-            </div>
+
+    let comentarioHtml = ``;
+    comentarioHtml += `<div class="container  containerProduct">`;
+    comentarioHtml += puntuacionHtml(puntuacion);
+    comentarioHtml += `
+    <p>`+formatDate+`</p>
+    <div>
+        <p>`+usuario+`</p>
+        <p>`+descripcion+`</p>
         </div>
-        `;
-    let contenedor = document.getElementById('comentario');
+    </div>
+    `
+    let contenedor = document.getElementById('comentario-reciente');
     contenedor.innerHTML += comentarioHtml;
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function(e){
+    document.getElementById("comentar").addEventListener("click", function(event){
+        recibirComentario();
+    })
+
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if(resultObj.status === "ok"){
             //Muestro la info del producto
