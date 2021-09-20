@@ -50,6 +50,7 @@ function mostrarMenu(){
     <button  id="info_usuario" class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </button>
     <div class="dropdown-menu" >
+    <a class="dropdown-item" href="cart.html">Mi carrito</a>
       <a class="dropdown-item" href="login.html" onclick="signOut()">Salir</a>
     </div>
 </div>
