@@ -14,24 +14,29 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+    <nav class="site-header navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-around" id="collapse_target">
+        <a class="nav-link" href="index.html">Inicio</a>
+        <a class="nav-link" href="categories.html">Categorías</a>
+        <a class="nav-link" href="products.html">Productos</a>
+        <a class="nav-link" href="sell.html">Vender</a>
         
         <!--Searchbar-->
         <div id="searchbar">
-            <!--Acá voy a crear el searchbar-->
+          <!--Acá voy a crear el searchbar-->
         </div>
-
-        <!--Info del Usuario (Dropdown obtenido de boostrap)-->
-       <div id="menu_usuario">
-          <!--Acá voy a crear el botón para el nombre de usuario-->
-       </div>
-
+  
       </div>
+      
+        <!--Info del Usuario (Dropdown obtenido de boostrap)-->
+        <div id="menu_usuario">
+          <!--Acá voy a crear el botón para el nombre de usuario-->
+        </div>
+  
     </nav>
 
     <main role="main" class="pb-5">
