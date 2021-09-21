@@ -144,7 +144,12 @@ function recibirComentario(){
     document.getElementById("caja-comentarios").reset()
 }
 
+//Agrega la informacion de los productos relacionados de cada producto
+function relatedProducts(){
 
+}
+
+//Espacio donde se agregan los event listener's y se usan las funciones
 document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("comentar").addEventListener("click", function(event){
         recibirComentario();
