@@ -148,13 +148,14 @@ function recibirComentario() {
 function relatedProducts(producto, listaProductos){
     let contenedor = document.getElementById('productos-relacionados');
     let string = ``;
-    for(let i =0; i < producto.relatedProducts.length- 1 ; i++){
+    for(let i =0; i < producto.relatedProducts.length ; i++){
         string += `
-        <div class="card" style="width: 18rem;">
-        <img src="`+ listaProductos[producto[i]].imgSrc +`" class="card-img-top">
+        <div class="card col-md-4">
+        <img src="`+ listaProductos[producto.relatedProducts[i]].imgSrc +`" class="card-img-top">
         <div class="card-body">
-            <h4 class="card-text">`+ listaProductos[producto[i]].name +`</h4>
-            <p class="card-text">`+ listaProductos[producto[i]].description+`</p>
+            <h4 class="card-text">`+ listaProductos[producto.relatedProducts[i]].name +`</h4>
+            <p class="card-text">`+ listaProductos[producto.relatedProducts[i]].description+`</p>
+            <a href="#" class="btn btn-secondary">Ir al producto</a>
         </div>
         </div>
         `;
