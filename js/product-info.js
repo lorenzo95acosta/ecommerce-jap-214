@@ -2,12 +2,12 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-var listaComentarios =[];
+var listaComentarios = [];
 
 //Muestra la informacion del JSON (imagenes, puntuacion)
-function mostrarInfoProducto(producto){
+function mostrarInfoProducto(producto) {
     let infoProducto = ``;
-    infoProducto +=``;
+    infoProducto += ``;
     infoProducto += crearTitulo(producto);
     infoProducto += crearCarrusel(producto);
     let contenedor = document.getElementById('info-producto');
@@ -15,7 +15,7 @@ function mostrarInfoProducto(producto){
 }
 
 //Crea el carrusel de imagenes para agregar a la info del producto
-function crearCarrusel(){
+function crearCarrusel() {
     let carrusel = ``;
     carrusel += `
     <div  class="container  containerProduct" id="containerProducto" style="width: 50%;">
@@ -52,8 +52,8 @@ function crearCarrusel(){
 }
 
 //Crea el titulo de la info del producto.
-function crearTitulo(producto){
-    let titulo =`
+function crearTitulo(producto) {
+    let titulo = `
     <div class="text-center p-4">
         <h2 id="nombrProducto">${producto.name}</h2>
     </div>
@@ -62,8 +62,8 @@ function crearTitulo(producto){
 }
 
 //Crea la descripcion del producto
-function crearDescripcion(producto){
-    let descripcion =`
+function crearDescripcion(producto) {
+    let descripcion = `
     <div class="text-center p-4">
         <p>${producto.description}</p>
     </div>
@@ -72,27 +72,27 @@ function crearDescripcion(producto){
 }
 
 //Funcion utilizada para obtener el promedio de las puntiuaciones en los comentarios
-function puntuacionPromedio(comentarios){
+function puntuacionPromedio(comentarios) {
     let suma = 0;
     let contador = 0;
-    if(comentarios.lenght != 0){
-        for(let comentario of comentarios){
+    if (comentarios.lenght != 0) {
+        for (let comentario of comentarios) {
             suma += comentario.parseInt(score);
-            contador ++;
+            contador++;
         }
     }
-    return suma/contador;
+    return suma / contador;
 }
 
 //Muncion para agregar las estrellas a los comentarios (crea el HTML correspondiente)
-function puntuacionHtml(puntuacion){
+function puntuacionHtml(puntuacion) {
     let string = ``;
     string += `<div class="container">`;
-    if (puntuacion > 0 && puntuacion <=5){
-        for( let i = puntuacion; i>0; i--){
+    if (puntuacion > 0 && puntuacion <= 5) {
+        for (let i = puntuacion; i > 0; i--) {
             string += `<span class="fa fa-star checked"></span>`;
         }
-        for(let j = 5-puntuacion; j>0; j--)
+        for (let j = 5 - puntuacion; j > 0; j--)
             string += ` <span class="fa fa-star"></span>`
     }
     string += `</div>`;
@@ -100,9 +100,9 @@ function puntuacionHtml(puntuacion){
 }
 
 //Muestra lo relacionado a los comentarios del producto (puntuacion y opinion del usuario)
-function mostrarComentario(comentarios){
+function mostrarComentario(comentarios) {
     let comentarioHtml = ``;
-    for(let comentario of comentarios){
+    for (let comentario of comentarios) {
         comentarioHtml += `
         <div class="container  containerProduct">`;
         comentarioHtml += puntuacionHtml(comentario.score);
@@ -121,9 +121,9 @@ function mostrarComentario(comentarios){
 
 
 //Obtengo los datos del comentario, para agregarlo a mi lista de comentarios existentes
-function recibirComentario(){
+function recibirComentario() {
     let date = new Date();
-    let formatDate = date.getDate().toString().padStart(2, '0') + "-" + (date.getMonth() +1).toString().padStart(2, '0') + "-" + date.getFullYear().toString() + "  " + date.getHours().toString() + ":" + date.getMinutes().toString()  + ":" + date.getSeconds().toString();
+    let formatDate = date.getDate().toString().padStart(2, '0') + "-" + (date.getMonth() + 1).toString().padStart(2, '0') + "-" + date.getFullYear().toString() + "  " + date.getHours().toString() + ":" + date.getMinutes().toString() + ":" + date.getSeconds().toString();
     let descripcion = document.getElementById("texto-comentario").value;
     let puntuacion = document.getElementById("puntuacion").value;
     let usuario = localStorage.getItem("usuario");
@@ -132,10 +132,10 @@ function recibirComentario(){
     comentarioHtml += `<div class="container  containerProduct">`;
     comentarioHtml += puntuacionHtml(puntuacion);
     comentarioHtml += `
-    <p>`+formatDate+`</p>
+    <p>`+ formatDate + `</p>
     <div>
-        <p>`+usuario+`</p>
-        <p>`+descripcion+`</p>
+        <p>`+ usuario + `</p>
+        <p>`+ descripcion + `</p>
         </div>
     </div>
     `
@@ -145,25 +145,46 @@ function recibirComentario(){
 }
 
 //Agrega la informacion de los productos relacionados de cada producto
-function relatedProducts(){
-
+function relatedProducts(producto, listaProductos){
+    let contenedor = document.getElementById('productos-relacionados');
+    let string = ``;
+    for(let i =0; i < producto.relatedProducts.length- 1 ; i++){
+        string += `
+        <div class="card" style="width: 18rem;">
+        <img src="`+ listaProductos[producto[i]].imgSrc +`" class="card-img-top">
+        <div class="card-body">
+            <h4 class="card-text">`+ listaProductos[producto[i]].name +`</h4>
+            <p class="card-text">`+ listaProductos[producto[i]].description+`</p>
+        </div>
+        </div>
+        `;
+    }
+    contenedor.innerHTML += string;
 }
 
 //Espacio donde se agregan los event listener's y se usan las funciones
-document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("comentar").addEventListener("click", function(event){
+document.addEventListener("DOMContentLoaded", function (e) {
+    document.getElementById("comentar").addEventListener("click", function (event) {
         recibirComentario();
     })
 
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if(resultObj.status === "ok"){
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             //Muestro la info del producto
-            mostrarInfoProducto(resultObj.data);
+            let producto = resultObj.data;
+            mostrarInfoProducto(producto);
+
+            //Muestro los productos relacionados
+            getJSONData(PRODUCTS_URL).then(function (resultObj) {
+                if (resultObj.status === "ok") {
+                    relatedProducts(producto, resultObj.data);
+                }
+            })
         }
     })
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
-        if(resultObj.status === "ok"){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             //Muestro los comentarios
             mostrarComentario(resultObj.data);
         }
