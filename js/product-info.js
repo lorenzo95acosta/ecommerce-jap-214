@@ -15,13 +15,15 @@ function mostrarInfoProducto(producto) {
 }
 
 //Crea el carrusel de imagenes para agregar a la info del producto
-function crearCarrusel() {
+function crearCarrusel(producto) {
     let carrusel = ``;
     carrusel += `
     <div  class="container  containerProduct" id="containerProducto" style="width: 50%;">
         <div id="imagenesProductos">
           <!--Acá se muestran las imagenes, se usa carousel de Boostrap-->
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+          
             <div class="carousel-inner">
               <div class=".col-4	.col-sm-4	.col-md-4	.col-lg-4	.col-xl-4 carousel-item active">
                 <img src="img/prod1_1.jpg" class="d-block w-100">
