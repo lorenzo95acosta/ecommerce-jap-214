@@ -29,6 +29,7 @@ function onSignIn(googleUser) {
     //Se envia mediante tokens para asegurar la seguridad de los datos del cliente
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
+    localStorage.clear();
   }
 
   //Funcion para hacer log-out
