@@ -75,14 +75,102 @@
           <!--Acá se cargan los productos-->
         </tbody>
         </table>
-        <div>
-          <p id=totalCarrito></p>
+        
+        <div class="container">
+          <h4 class="text-center"><span  id=totalCarrito class="badge  badge-secondary"></span></h4>
         </div>
 </div>
 
 
 <!--Acá agrego el form para la info de envío-->
 <div class="container">
+  <form>
+    <div class="form-row">
+
+    </div>
+    <div class="form-group">
+      <label for="direccion">Direccion</label>
+      <input type="text" class="form-control" id="direccion" placeholder="Ej: 18 de julio 1234 ap.123">
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="barrio">Barrio</label>
+        <input id="barrio" type="text" class="form-control" placeholder="Ej: Cordón">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="ciudad">Departamento</label>
+        <select id="ciudad" class="form-control">
+          <option selected>Montevideo</option>
+          <option>Artigas</option>
+          <option>Canelones</option>
+          <option>Cerro Largo</option>
+          <option>Colonia</option>
+          <option>Durazno</option>
+          <option>Flores</option>
+          <option>Florida</option>
+          <option>Lavalleja</option>
+          <option>Maldonado</option>
+          <option>Paysandú</option>
+          <option>Río Negro</option>
+          <option>Rivera</option>
+          <option>Rocha</option>
+          <option>Salto</option>
+          <option>San José</option>
+          <option>Soriano</option>
+          <option>Tacuarembó</option>
+          <option>Treinta y Tres</option>
+        </select>
+      </div>
+
+
+      <div class="form-group col-md-2">
+        <label for="zip">Código postal</label>
+        <input type="text" class="form-control" id="zip" placeholder="Ej: 11700">
+      </div>
+    </div>
+
+
+      <div class="form-group col-md-4">
+        <label for="metodoPago">Método de pago:</label>
+        <select id="metodoPago" class="form-control">
+          <option selected>-         Elegir         -</option>
+          <option>Tarjeta de débito</option>
+          <option>Tarjeta de crédito</option>
+          <option>Mercado Pago</option>
+          <option>Efectivo</option>
+          <option>Transferencia Bancaria</option>
+        </select>
+      </div>
+
+
+    <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Método de envío:</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Envío express
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Envío normal
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+          <label class="form-check-label" for="gridRadios3">
+            Retira en centro de pick-up
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    <button type="submit" class="btn btn-primary ">Confirmar</button>
+  </form>
 
 </div>
 

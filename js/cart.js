@@ -15,56 +15,52 @@ function mostrarCarrito(){
         <td><img src="${productosCarrito[i].src}" class = "img-fluid" style ="max-width:50px!important"></td>
         <td class="align-middle">${productosCarrito[i].name}</td>
         <td class="align-middle">${productosCarrito[i].currency} ${productosCarrito[i].unitCost}</td>
-        <td class="align-middle"><input id="${i}" type="number" min ="1" value=${productosCarrito[i].count} class="cantidad" onChange="totalCarrito();"
+        <td class="align-middle"><input id="${i}" type="number" min ="1" value=${productosCarrito[i].count} class="cantidad"
+            onChange="agregarPtf(this.value, ${productosCarrito[i].unitCost}, ${i}); totalCarrito();";
             data-name = "${productosCarrito[i].name}"
             data-precio = "${productosCarrito[i].unitCost}"
             data-moneda = "${productosCarrito[i].currency}"
         ></td>
-        <td class="align-middle" >UYU <h6  id="precio${i}" class="subtotal"></h6></td>
+        <td id="precio${i}" class="subtotal  align-middle"></td>
         </tr>`                      
     }
     document.getElementById("carrito").innerHTML = htmlToAppend;
-    actualizarSubtotales();
+    // actualizarSubtotales();
 }
 
-//Funcion que me calculo el P.T.F, ya convertido a pesos
-function precioProducto(currency, unitCost, cantidad){
-    let aux = unitCost*cantidad;
-    if(currency === "USD"){
-        return aux*40;
-    }else{
-        return aux;
-    }
-}
 
-//Funcion que me agrega el P.T.F en su lugar correspondiente en la tabla
-function agregarPtf(ptf, id){
+//Funcion que me  me calculo el P.T.F, ya convertido a pesos y  lo agrega a su lugar correspondiente en la tabla
+function agregarPtf(cantidad, unitCost, id){
+    let ptf = unitCost*cantidad;
+    let moneda = document.getElementById(id);
+    if(moneda.data-moneda === "USD"){
+         ptf*40;}
     let subtotal = document.getElementById("precio"+id);
     subtotal.innerHTML =ptf;
 }
 
-function actualizarSubtotales(){
-    let inputs = document.getElementsByClassName("cantidad");
-    for(let input of inputs){
-        input.addEventListener("change", (e)=>{
-            //Obtengo informacion del producto al que le cambio la cantidad
-            let precio = parseFloat(e.target.dataset.precio);
-            let moneda = e.target.dataset.moneda;
-            let  cantidad = parseInt(e.target.value);
-            //Calculo el precio total final
-            let ptf = precioProducto(moneda, precio, cantidad);
-            let id = e.target.getAttribute("id");
-            //Muestro el precio total final de cada producto
-            agregarPtf(ptf, id);
-        })
-    }
-}
+// function actualizarSubtotales(){
+//     let inputs = document.getElementsByClassName("cantidad");
+//     for(let input of inputs){
+//         input.addEventListener("change", (e)=>{
+//             //Obtengo informacion del producto al que le cambio la cantidad
+//             let precio = parseFloat(e.target.dataset.precio);
+//             let moneda = e.target.dataset.moneda;
+//             let  cantidad = parseInt(e.target.value);
+//             //Calculo el precio total final
+//             let ptf = precioProducto(moneda, precio, cantidad);
+//             let id = e.target.getAttribute("id");
+//             //Muestro el precio total final de cada producto
+//             agregarPtf(ptf, id);
+//         })
+//     }
+// }
 
 //Funcion que calcula el total de la compra
 function totalCarrito(){
     let suma = 0
     let subtotal = document.getElementsByClassName("subtotal");
-    for(valor of subtotal){
+    for(let valor of subtotal){
         suma += parseInt(valor.innerHTML);
     }
     let total = document.getElementById('totalCarrito');
