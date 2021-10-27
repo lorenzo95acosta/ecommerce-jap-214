@@ -78,9 +78,10 @@ function listaProductos(){
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(productos.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(productos.cost) <= maxCount))){
+/*
+                                           -------- STRING ANTES DE SER RESPONSIVE -------- 
 
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+<a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + productos.imgSrc + `" alt="` + productos.description + `" class="img-thumbnail">
@@ -96,6 +97,24 @@ function listaProductos(){
                 </div>
             </div>
         </a>
+
+
+
+*/
+            htmlContentToAppend += `
+            <div class="col-md-4">
+                <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+                    <img class="bd-placeholder-img card-img-top" src="` + productos.imgSrc + `">
+                     <h4 class="mb-1">`+ productos.name +`</h4>
+                     <small class="text-muted">Ya se vendieron ` + productos.soldCount + ` iguales.</small>
+                    <div class="card-body">
+                        <p class="card-text">`+ productos.description + `</p>
+                    </div>
+                    <br>
+                    <h4 class="mb-1" style="text-align:right">`+ productos.currency + productos.cost  +`</h4>
+                 </a>
+            </div>
+            
             `
         }
 
