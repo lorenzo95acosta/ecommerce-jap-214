@@ -59,6 +59,18 @@
 
   </nav>
 
+<!--Lugar donde se muestran los datos del usuario-->
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <img src="img/usr.png" class="img-fluid rounded float-left" style="margin: 50px">
+    </div>
+    <div id="info-usuario" class="col" style="margin: 50px;">
+      <!--Aca se carga la info obtenida de localStorage-->
+    </div>
+  </div>
+</div>
+
 <!--Formulario para ingreso de los datos-->
 <div class="container">
   <form class="needs-validation" novalidate>
@@ -66,14 +78,14 @@
       <!--Nombre-->
       <div class="col-md-4 mb-3">
         <label for="nombre">Nombre: </label>
-        <input type="text" class="form-control" id="nombre" placeholder="Ej: Lorenzo" value="Nombre" required>
+        <input type="text" class="form-control" id="nombre-formulario" placeholder="Ej: Lorenzo" value="Nombre" required>
         <div class="valid-feedback">
         </div>
       </div>
       <!--Apellido-->
       <div class="col-md-4 mb-3">
         <label for="apellido">Apellido: </label>
-        <input type="text" class="form-control" id="apellido" placeholder="Ej: Acosta" value="Apellido" required>
+        <input type="text" class="form-control" id="apellido-formulario" placeholder="Ej: Acosta" value="Apellido" required>
         <div class="valid-feedback">
         </div>
       </div>
@@ -88,7 +100,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend">@</span>
           </div>
-          <input type="email" class="form-control" id="email" placeholder="algo@dominio" aria-describedby="inputGroupPrepend" required>
+          <input type="email" class="form-control" id="email-formulario" placeholder="algo@dominio" aria-describedby="inputGroupPrepend" required>
           <div class="invalid-feedback">
             Ingrese un e-mail válido
           </div>
@@ -100,7 +112,7 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="edad">Edad: </label>
-        <input type="number" class="form-control" min="16" id="edad" placeholder="Edad" required>
+        <input type="number" class="form-control" min="16" id="edad-formulario" placeholder="Edad" required>
         <div class="invalid-feedback">
         </div>
       </div>
@@ -110,7 +122,7 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="contacto">N° de telefono: </label>
-        <input type="text" class="form-control" id="contacto" placeholder="Ej: 09X XXX XXX" required>
+        <input type="text" class="form-control" id="telefono-formulario" placeholder="Ej: 09X XXX XXX" required>
         <div class="invalid-feedback">
         </div>
       </div>
@@ -128,13 +140,13 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-primary rounded-pill" type="submit">Guardar</button>
+    <button onclick="guardarDatos();" class="btn btn-primary rounded-pill" type="submit">Guardar</button>
   </form>
 </div>
 
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <button  type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

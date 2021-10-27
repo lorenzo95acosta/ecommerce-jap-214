@@ -19,8 +19,61 @@
         }, false);
       });
     }, false);
-  })();
+})();
+
+
+//Funcion guardar
+function guardarDatos(){
+    //Obtengo los datos
+    let nombre = document.getElementById("nombre-formulario").value;
+    let apellido = document.getElementById("apellido-formulario").value;
+    let correo = document.getElementById("email-formulario").value;
+    let edad = document.getElementById("edad-formulario").value;
+    let telefono = document.getElementById("telefono-formulario").value;
+    //Los convierto a objeto
+    let usuario = {
+      name: nombre,
+      lastname: apellido,
+      email: correo,
+      age: edad,
+      contact: telefono
+    };
+    localStorage.setItem("usuario-formulario", JSON.stringify(usuario));
+  }
+
+function mostrarDatos(){
+  let usuario = JSON.parse(localStorage.getItem("usuario-formulario"));
+  if( usuario != undefined){
+    let contenido = `
+    <table class="table table-responsive">
+    <thead class="thead-light">
+      <tr>
+        <th colspan= "4" >${usuario.name}`+`   ${usuario.lastname}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">E-Mail: </th>
+        <td>${usuario.email}</td>
+      </tr>
+      <tr>
+        <th scope="row">Edad: </th>
+        <td>${usuario.age}</td>
+      </tr>
+      <tr>
+        <th scope="row">Contacto: </th>
+        <td>${usuario.contact}</td>
+      </tr>
+    </tbody>
+  </table>
+    `;
+    let contenedor = document.getElementById("info-usuario");
+    contenedor.innerHTML = contenido;
+  }
+
+}
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
-
+  mostrarDatos();
 });
