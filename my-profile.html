@@ -59,21 +59,79 @@
 
   </nav>
 
+<!--Formulario para ingreso de los datos-->
+<div class="container">
+  <form class="needs-validation" novalidate>
+    <div class="form-row">
+      <!--Nombre-->
+      <div class="col-md-4 mb-3">
+        <label for="nombre">Nombre: </label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ej: Lorenzo" value="Nombre" required>
+        <div class="valid-feedback">
+        </div>
+      </div>
+      <!--Apellido-->
+      <div class="col-md-4 mb-3">
+        <label for="apellido">Apellido: </label>
+        <input type="text" class="form-control" id="apellido" placeholder="Ej: Acosta" value="Apellido" required>
+        <div class="valid-feedback">
+        </div>
+      </div>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+
+    <div class="form-row">
+      <!--Email-->
+      <div class="col-md-4 mb-3">
+        <label for="email">E-Mail:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div>
+          <input type="email" class="form-control" id="email" placeholder="algo@dominio" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Ingrese un e-mail válido
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+
+    <!--Edad-->
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="edad">Edad: </label>
+        <input type="number" class="form-control" min="16" id="edad" placeholder="Edad" required>
+        <div class="invalid-feedback">
+        </div>
+      </div>
+    </div>
+
+    <!--Telefono de contacto-->
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="contacto">N° de telefono: </label>
+        <input type="text" class="form-control" id="contacto" placeholder="Ej: 09X XXX XXX" required>
+        <div class="invalid-feedback">
+        </div>
+      </div>
+    </div>
+
+    <!--T&C-->
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          Aceptar términos y condiciones
+        </label>
+        <div class="invalid-feedback">
+          Debes aceptar términos y condiciones
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary rounded-pill" type="submit">Guardar</button>
+  </form>
+</div>
+
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
