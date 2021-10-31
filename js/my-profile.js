@@ -30,13 +30,15 @@ function guardarDatos(){
     let correo = document.getElementById("email-formulario").value;
     let edad = document.getElementById("edad-formulario").value;
     let telefono = document.getElementById("telefono-formulario").value;
+    let preview = document.getElementById("foto-exhibida");
     //Los convierto a objeto
     let usuario = {
       name: nombre,
       lastname: apellido,
       email: correo,
       age: edad,
-      contact: telefono
+      contact: telefono,
+      img: preview.src
     };
     localStorage.setItem("usuario-formulario", JSON.stringify(usuario));
   }
@@ -69,23 +71,28 @@ function mostrarDatos(){
     `;
     let contenedor = document.getElementById("info-usuario");
     contenedor.innerHTML = contenido;
+    let foto = document.getElementById('foto-exhibida');
+    foto.src = usuario.img;
   }
 }
 
 function previewFile(){
   let preview = document.getElementById('foto-exhibida');
-  let file = document.querySelector('input[type=file]').files[0]
-  let reader = new FileReader();
-  if(file){
-    reader.readAsDataURL(file);
-  } else{
-    preview.src = "img/usr.png"; 
-  }
-  reader.onloadend = ()=>{
+  let file    = document.querySelector('input[type=file]').files[0];
+  let reader  = new FileReader();
+
+  reader.onloadend = function () {
     preview.src = reader.result;
-    console.log(reader.result)
+    console.log(preview.src);
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "img/usr.png";
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
   mostrarDatos();
