@@ -131,19 +131,6 @@
     </div>
 
 
-      <div class="form-group col-md-4">
-        <label for="metodoPago">Método de pago:</label>
-        <select id="metodoPago" class="form-control">
-          <option selected>-         Elegir         -</option>
-          <option>Tarjeta de débito</option>
-          <option>Tarjeta de crédito</option>
-          <option>Mercado Pago</option>
-          <option>Efectivo</option>
-          <option>Transferencia Bancaria</option>
-        </select>
-      </div>
-
-
     <fieldset class="form-group">
     <div class="row">
       <legend class="col-form-label col-sm-2 pt-0">Método de envío:</legend>
@@ -169,8 +156,47 @@
       </div>
     </div>
   </fieldset>
-    <button type="submit" class="btn btn-primary ">Confirmar</button>
+    <button type="button" class="btn btn-primary "  data-toggle="modal" data-target="#modal-metodo-pago">Confirmar</button>
   </form>
+
+
+  <!--Modal para confirmar método de pago-->
+  <div class="modal fade" id="modal-metodo-pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--****************TOTAL *****************-->
+          <div>
+          </div>
+          <!--***************PAGOS******************-->
+          <div> 
+            <label for="metodoPago">Método de pago:</label>
+            <select id="metodoPago" class="form-control">
+              <option selected>-         Elegir         -</option>
+              <option>Tarjeta de débito</option>
+              <option>Tarjeta de crédito</option>
+              <option>Mercado Pago</option>
+              <option>Efectivo</option>
+              <option>Transferencia Bancaria</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+          <button type="button" class="btn btn-primary">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 </div>
 
