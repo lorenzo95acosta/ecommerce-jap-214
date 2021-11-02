@@ -44,161 +44,182 @@
       <a class="nav-link" href="categories.html">Categorías</a>
       <a class="nav-link" href="products.html">Productos</a>
       <a class="nav-link" href="sell.html">Vender</a>
-      
+
       <!--Searchbar-->
       <div id="searchbar">
         <!--Acá voy a crear el searchbar-->
       </div>
 
     </div>
-    
-      <!--Info del Usuario (Dropdown obtenido de boostrap)-->
-      <div id="menu_usuario">
-        <!--Acá voy a crear el botón para el nombre de usuario-->
-      </div>
+
+    <!--Info del Usuario (Dropdown obtenido de boostrap)-->
+    <div id="menu_usuario">
+      <!--Acá voy a crear el botón para el nombre de usuario-->
+    </div>
 
   </nav>
-  
+
   <!--Acá se agrega el carrito-->
   <div class="container">
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody id="carrito">
-          <!--Acá se cargan los productos-->
-        </tbody>
-        </table>
-        
-        <div class="container">
-          <h4 class="text-center"><span  id=totalCarrito class="badge  badge-secondary"></span></h4>
-        </div>
-</div>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="carrito">
+        <!--Acá se cargan los productos-->
+      </tbody>
+    </table>
 
+    <!--Acá se muestra el subtotal y el total-->
+    <table class="table table-active" style="margin: 50px; max-width: 800px;">
+      <tbody>
+        <tr>
+          <td class="align-middle">Subtotal ($) </td>
+          <td class="align-middle" id=totalCarrito></td>
+        </tr>
+        <tr>
+          <td class="align-middle">Costo de envío </td>
+          <td class="align-middle" id="envioCarrito"></td>
+        </tr>
+        <tr>
+          <td class="align-middle">Total</td>
+          <td class="align-middle" id="precioCarrito"></td>
+        </tr>
+      </tbody>
+    </table>
 
-<!--Acá agrego el form para la info de envío-->
-<div class="container">
-  <form>
-    <div class="form-row">
-
-    </div>
-    <div class="form-group">
-      <label for="direccion">Direccion</label>
-      <input type="text" class="form-control" id="direccion" placeholder="Ej: 18 de julio 1234 ap.123">
-    </div>
-    
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="barrio">Barrio</label>
-        <input id="barrio" type="text" class="form-control" placeholder="Ej: Cordón">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="ciudad">Departamento</label>
-        <select id="ciudad" class="form-control">
-          <option selected>Montevideo</option>
-          <option>Artigas</option>
-          <option>Canelones</option>
-          <option>Cerro Largo</option>
-          <option>Colonia</option>
-          <option>Durazno</option>
-          <option>Flores</option>
-          <option>Florida</option>
-          <option>Lavalleja</option>
-          <option>Maldonado</option>
-          <option>Paysandú</option>
-          <option>Río Negro</option>
-          <option>Rivera</option>
-          <option>Rocha</option>
-          <option>Salto</option>
-          <option>San José</option>
-          <option>Soriano</option>
-          <option>Tacuarembó</option>
-          <option>Treinta y Tres</option>
-        </select>
-      </div>
-
-
-      <div class="form-group col-md-2">
-        <label for="zip">Código postal</label>
-        <input type="text" class="form-control" id="zip" placeholder="Ej: 11700">
-      </div>
-    </div>
-
-
-    <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Método de envío:</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Envío express
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Envío normal
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
-          <label class="form-check-label" for="gridRadios3">
-            Retira en centro de pick-up
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-    <button type="button" class="btn btn-primary "  data-toggle="modal" data-target="#modal-metodo-pago">Confirmar</button>
-  </form>
-
-
-  <!--Modal para confirmar método de pago-->
-  <div class="modal fade" id="modal-metodo-pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!--****************TOTAL *****************-->
-          <div>
-          </div>
-          <!--***************PAGOS******************-->
-          <div> 
-            <label for="metodoPago">Método de pago:</label>
-            <select id="metodoPago" class="form-control">
-              <option selected>-         Elegir         -</option>
-              <option>Tarjeta de débito</option>
-              <option>Tarjeta de crédito</option>
-              <option>Mercado Pago</option>
-              <option>Efectivo</option>
-              <option>Transferencia Bancaria</option>
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-          <button type="button" class="btn btn-primary">Comprar</button>
-        </div>
-      </div>
-    </div>
+    <!-- Lugar donde se mostraba el subtotal previamente
+    <div class="container">
+      <h4 class="text-center"><span id=totalCarrito class="badge  badge-secondary"></span></h4>
+    </div> -->
   </div>
 
 
+  <!--Acá agrego el form para la info de envío-->
+  <div class="container">
+    <form class="needs-validation" novalidate>
+
+      <div class="form-group">
+        <label for="direccion">Direccion</label>
+        <input type="text" class="form-control" id="direccion" placeholder="Ej: 18 de julio 1234 ap.123" required>
+        <div class="valid-feedback">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="barrio">Barrio</label>
+          <input id="barrio" type="text" class="form-control" placeholder="Ej: Cordón" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="ciudad">Departamento</label>
+          <select id="ciudad" class="form-control">
+            <option selected>Montevideo</option>
+            <option>Artigas</option>
+            <option>Canelones</option>
+            <option>Cerro Largo</option>
+            <option>Colonia</option>
+            <option>Durazno</option>
+            <option>Flores</option>
+            <option>Florida</option>
+            <option>Lavalleja</option>
+            <option>Maldonado</option>
+            <option>Paysandú</option>
+            <option>Río Negro</option>
+            <option>Rivera</option>
+            <option>Rocha</option>
+            <option>Salto</option>
+            <option>San José</option>
+            <option>Soriano</option>
+            <option>Tacuarembó</option>
+            <option>Treinta y Tres</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="zip">Código postal</label>
+          <input type="text" class="form-control" id="zip" placeholder="Ej: 11700" required>
+        </div>
+      </div>
 
 
-</div>
+
+      <div class="form-row">
+        <legend class="col-form-label col-sm-2 pt-0">Tipo de envío:</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="premium" value="premium">
+            <label class="form-check-label" for="gridRadios1">
+              Premium (2-5 días) - Costo del 15% sobre el subtotal
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="express" value="express">
+            <label class="form-check-label" for="gridRadios2">
+              Express (5-8 días) - Costo del 7% sobre el subtotal
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="gridRadios" id="standard" value="standard" checked>
+            <label class="form-check-label" for="gridRadios3">
+              Standard (12 a 15 días) - Costo del 5% sobre el subtotal
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <fieldset class="form-group">
+        <legend class="col-form-label col-sm-2 pt-0">Método de pago:</legend>
+        <button type="button" class="btn btn-outline-secondary rounded pill btn-sm" data-target="#modal-metodo-pago"
+          data-toggle="modal">Seleccionar</button>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary rounded-pill" >Confirmar</button>
+    </form>
+
+
+    <!--Modal para confirmar método de pago-->
+    <div class="modal fade" id="modal-metodo-pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--****************TOTAL *****************-->
+            <div>
+            </div>
+            <!--***************PAGOS******************-->
+            <div>
+              <select id="metodoPago" class="form-control">
+                <option selected>Efectivo</option>
+                <option>Tarjeta de débito</option>
+                <option>Tarjeta de crédito</option>
+                <option>Mercado Pago</option>
+                <option>Transferencia Bancaria</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill" data-dismiss="modal">Seleccionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
