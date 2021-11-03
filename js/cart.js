@@ -107,20 +107,43 @@ function precioConEnvio() {
 }
 
 function mensajeCompraExitosa(){
+    //Corroboro que los campos estén llenos
+    let direccion = document.getElementById('direccion');
+    let barrio = document.getElementById('barrio');
+    let zip = document.getElementById('zip');
+    let usuario = JSON.parse(localStorage.getItem("usuario-formulario"));
+
+    if((direccion.value != '') && (barrio.value != '') && (zip.value != '')){
         let cuerpo = document.body;
         html = `
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible" role="alert">
         <strong>${mensaje}</strong>
+        <br>
+        <hr>
+        <br>
+        <p> El pedido se enviará a: ${direccion.value}</p>
+        <p>¡${usuario.name}, muchas gracias por elegirnos!</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
         `;
         cuerpo.innerHTML += html;
+    }    
+}
+
+function tipoDePago() {
+    let metodo = document.getElementById('metodoPago');
+    metodo.addEventListener("change", ()=>{
+        let tipo = document.getElementById('tipo');
+        tipo.innerHTML = metodo.value;
+    })
 }
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    tipoDePago();
+
     getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             //Cargo en mi array de productos, los recibidos desde la peticion web
