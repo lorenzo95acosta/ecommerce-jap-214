@@ -96,6 +96,7 @@ function totalCarrito(porcentaje) {
     total.innerHTML = suma;
 }
 
+//Calcula el precio del envió según el subtotal
 function precioConEnvio() {
     let total = document.getElementById("totalCarrito");
     let envio = document.getElementById("envioCarrito");
@@ -108,6 +109,7 @@ function precioConEnvio() {
     precio.innerHTML = totalCostToShow;
 }
 
+//Confirma la compra SII todo los campos están llenos
 function mensajeCompraExitosa(){
     //Corroboro que los campos estén llenos
     let direccion = document.getElementById('direccion');
@@ -152,7 +154,7 @@ function mensajeCompraExitosa(){
     }
 }
 
-
+//Muestra el tipo de pago elegido
 function formDePago() {
     let metodo = document.getElementById('metodoPago');
     metodo.addEventListener("change", ()=>{
@@ -161,6 +163,7 @@ function formDePago() {
     })
 }
 
+//Agrega los campos correspondientes, para obtener los datos necesarios seguún el método de pago
 function datosPago(){
     let boton = document.getElementById('tipoDePago');
     boton.addEventListener("click", ()=>{
@@ -217,7 +220,28 @@ function datosPago(){
     })
 }
 
-//*****************DESAFIATE***********************/
+//Si no se selecciona un método de pago, se le solicita uno al cliente
+function existePago(){
+    let boton = document.getElementById('botonComprar');
+    boton.addEventListener("click", ()=>{
+        let metodo = document.getElementById('tipo');
+        if(metodo.innerHTML === ''){
+            let cuerpo = document.body;
+            html = `
+            <div class="alert alert-danger alert-dismissible" role="alert">
+            <strong>Debe seleccionar un método de pago</strong>
+            <button type="button" class="close" data-dismiss="alert" onclick="location.reload();" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            `;
+            cuerpo.innerHTML += html;
+        }
+    });
+}
+
+/*****************DESAFIATE***********************/
+//Quita los productos según su indice en el array de productos agregados al carrito
 
 function quitarProducto(indice){
     let nuevalista = productosCarrito.splice(indice, 1);
@@ -228,6 +252,7 @@ function quitarProducto(indice){
 document.addEventListener("DOMContentLoaded", function (e) {
     formDePago();
     datosPago();
+    existePago();
 
     getJSONData("https://japdevdep.github.io/ecommerce-api/cart/654.json").then(function (resultObj) {
         if (resultObj.status === "ok") {
