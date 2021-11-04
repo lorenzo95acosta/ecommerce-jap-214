@@ -121,7 +121,7 @@ function mensajeCompraExitosa(){
         let info2 = document.getElementById('numeroCvCredito');
         let info3 = document.getElementById('vencimientoCredito');
         if ((info1.value != '') &&(info2.value != '') &&(info3.value != '')){infopago = ' true';}
-    } else  if(tipoDePago === 'Tarjeta de debito'){
+    } else  if(tipoDePago === 'Tarjeta de débito'){
         let info1 = document.getElementById('numeroDebito');
         let info2 = document.getElementById('vencimientoDebito');
         if ((info1.value != '') &&(info2.value != '')){infopago = ' true';}
@@ -132,7 +132,6 @@ function mensajeCompraExitosa(){
         let info1 = document.getElementById('comprobanteTransferencia');
         if (info1.value != ''){infopago = ' true';}
     };
-
 
     if((direccion.value != '') && (barrio.value != '') && (zip.value != '') && (infopago != '')){
         let cuerpo = document.body;
@@ -150,8 +149,9 @@ function mensajeCompraExitosa(){
         </div>
         `;
         cuerpo.innerHTML += html;
-    }    
+    }
 }
+
 
 function formDePago() {
     let metodo = document.getElementById('metodoPago');
