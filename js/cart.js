@@ -5,6 +5,7 @@ let productCost = 0;
 let productCount = 0;
 let porcentajeEnvio = 0.05;
 let mensaje = ``;
+let tipoDePago =``;
 
 //Funcion de Bootsrap para las validaciones
 (function () {
@@ -45,6 +46,7 @@ function mostrarCarrito() {
             data-moneda = "${productosCarrito[i].currency}"
         ></td>
         <td id="precio${i}" class="subtotal  align-middle"></td>
+        <td class="align-middle"><button type="button" class="btn btn-danger" onclick="quitarProducto(${i})"> - </button></td>
         </tr>`
     }
     document.getElementById("carrito").innerHTML = htmlToAppend;
@@ -112,8 +114,27 @@ function mensajeCompraExitosa(){
     let barrio = document.getElementById('barrio');
     let zip = document.getElementById('zip');
     let usuario = JSON.parse(localStorage.getItem("usuario-formulario"));
+    let infopago = '';
 
-    if((direccion.value != '') && (barrio.value != '') && (zip.value != '')){
+    if(tipoDePago === 'Tarjeta de crédito'){
+        let info1 = document.getElementById('numeroCredito');
+        let info2 = document.getElementById('numeroCvCredito');
+        let info3 = document.getElementById('vencimientoCredito');
+        if ((info1.value != '') &&(info2.value != '') &&(info3.value != '')){infopago = ' true';}
+    } else  if(tipoDePago === 'Tarjeta de debito'){
+        let info1 = document.getElementById('numeroDebito');
+        let info2 = document.getElementById('vencimientoDebito');
+        if ((info1.value != '') &&(info2.value != '')){infopago = ' true';}
+    }else  if(tipoDePago === 'Efectivo'){
+        let info1 = document.getElementById('efectivo');
+        if (info1.value != ''){infopago = ' true';}
+    }else  if(tipoDePago === 'Transferencia Bancaria'){
+        let info1 = document.getElementById('comprobanteTransferencia');
+        if (info1.value != ''){infopago = ' true';}
+    };
+
+
+    if((direccion.value != '') && (barrio.value != '') && (zip.value != '') && (infopago != '')){
         let cuerpo = document.body;
         html = `
         <div class="alert alert-success alert-dismissible" role="alert">
@@ -132,7 +153,7 @@ function mensajeCompraExitosa(){
     }    
 }
 
-function tipoDePago() {
+function formDePago() {
     let metodo = document.getElementById('metodoPago');
     metodo.addEventListener("change", ()=>{
         let tipo = document.getElementById('tipo');
@@ -140,11 +161,75 @@ function tipoDePago() {
     })
 }
 
+function datosPago(){
+    let boton = document.getElementById('tipoDePago');
+    boton.addEventListener("click", ()=>{
+        let tipo = document.getElementById('tipo');
+        tipoDePago = tipo.innerHTML;
+        let formMetodo = ``;
+        if(tipoDePago === 'Tarjeta de crédito'){
+            //Tarjeta de credito
+            formMetodo = `
+            <label for="direccion">N° de tarjeta</label>
+            <input type="text" class="form-control" id="numeroCredito" placeholder="1234 1234 1234 1234" required>
+            <div class="valid-feedback">
+            </div>
+            <label for="direccion">CV</label>
+            <input type="text" class="form-control" id="numeroCvCredito" placeholder="Ej: 123" required>
+            <div class="valid-feedback">
+            </div>
+            <label for="direccion">Fecha de vencimiento</label>
+            <input type="date" class="form-control" id="vencimientoCredito" required>
+            <div class="valid-feedback">
+            </div>
+            `;
+        } else if(tipoDePago === 'Tarjeta de débito'){
+            //Tarjeta de debito
+            formMetodo = `
+            <label for="direccion">N° de tarjeta</label>
+            <input type="text" class="form-control" id="numeroDebito" placeholder="Ej: 1234 1234 1234 1234" required>
+            <div class="valid-feedback">
+            </div>
+            <label for="direccion">Fecha de vencimiento</label>
+            <input type="date" class="form-control" id="vencimientoDebito" required>
+            <div class="valid-feedback">
+            </div>
+            `;
+        } else if(tipoDePago === 'Efectivo'){
+            //Efectivo
+            formMetodo = `
+            <label for="direccion">Cantidad con la que va a pagar:</label>
+            <input type="text" class="form-control" id="efectivo" placeholder="Ej: $ 1000" required>
+            <div class="valid-feedback">
+            </div>
+            `;
+        } else if (tipoDePago === 'Transferencia Bancaria'){
+            //Transferencia bancaria
+            formMetodo = `
+            <label for="direccion">N° comprobante:</label>
+            <input type="text" class="form-control" id="comprobanteTransferencia" placeholder="Ej: 123546 " required>
+            <div class="valid-feedback">
+            </div>
+            `;
+        }
+        let datos = document.getElementById('datosPago');
+        datos.innerHTML = formMetodo;
+    })
+}
+
+//*****************DESAFIATE***********************/
+
+function quitarProducto(indice){
+    let nuevalista = productosCarrito.splice(indice, 1);
+    mostrarCarrito(nuevalista);
+}
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    tipoDePago();
+    formDePago();
+    datosPago();
 
-    getJSONData(CART_INFO_URL).then(function (resultObj) {
+    getJSONData("https://japdevdep.github.io/ecommerce-api/cart/654.json").then(function (resultObj) {
         if (resultObj.status === "ok") {
             //Cargo en mi array de productos, los recibidos desde la peticion web
             productosCarrito = resultObj.data.articles;

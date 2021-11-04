@@ -69,6 +69,7 @@
           <th scope="col">Precio</th>
           <th scope="col">Cantidad</th>
           <th scope="col">Subtotal</th>
+          <th scope="col">Quitar</th>
         </tr>
       </thead>
       <tbody id="carrito">
@@ -183,6 +184,10 @@
           data-toggle="modal">Seleccionar</button>
       </fieldset>
 
+      <div id="datosPago" class="form-group">
+        <!--Datos requeridos según el metodo de pago-->
+      </div>
+
       <button type="submit" class="btn btn-primary rounded-pill" onclick="mensajeCompraExitosa();">Confirmar</button>
     </form>
 
@@ -208,13 +213,12 @@
                 <option selected>Efectivo</option>
                 <option>Tarjeta de débito</option>
                 <option>Tarjeta de crédito</option>
-                <option>Mercado Pago</option>
                 <option>Transferencia Bancaria</option>
               </select>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary rounded-pill" data-dismiss="modal">Seleccionar</button>
+            <button id="tipoDePago" type="button" class="btn btn-secondary rounded-pill" data-dismiss="modal">Seleccionar</button>
           </div>
         </div>
       </div>
