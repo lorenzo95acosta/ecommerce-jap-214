@@ -7,6 +7,9 @@ let porcentajeEnvio = 0.05;
 let mensaje = ``;
 let tipoDePago =``;
 
+//Objeto para el método POST
+let DATA = {};
+
 //Funcion de Bootsrap para las validaciones
 (function () {
     'use strict';
@@ -247,6 +250,27 @@ function quitarProducto(indice){
     let nuevalista = productosCarrito.splice(indice, 1);
     mostrarCarrito(nuevalista);
 }
+/*****************DESAFIATE  Entrega 8***************/
+//Quita los productos según su indice en el array de productos agregados al carrito
+
+function datosUrlPost(){
+    //Obtengo los datos del formulario
+    let usuario = JSON.parse(localStorage.getItem("usuario-formulario"));
+    let nombre = usuario.name;
+    let direccion = document.getElementById('direccion');
+    let telefono = usuario.contact;
+    let metodoDePago = document.getElementById('metodoPago');
+    //Creo un objeto DATA con la info obtenida
+    let dataUsuario = {
+        name : nombre,
+        address : direccion,
+        contact : telefono,
+        payment : metodoDePago
+    }
+    DATA = dataUsuario;
+}
+
+
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -289,4 +313,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
         precioConEnvio();
     });
 
+    /*****************DESAFIATE  Entrega 8***************/
+    fetch("http://localhost:3000/compra", {
+        method : 'POST', 
+        body : JSON.stringify(DATA), 
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }).then(res => res.json())
 });
