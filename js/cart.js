@@ -7,8 +7,6 @@ let porcentajeEnvio = 0.05;
 let mensaje = ``;
 let tipoDePago =``;
 
-//Objeto para el método POST
-let DATA = {};
 
 //Funcion de Bootsrap para las validaciones
 (function () {
@@ -116,6 +114,7 @@ function precioConEnvio() {
 function mensajeCompraExitosa(){
     //Corroboro que los campos estén llenos
     let direccion = document.getElementById('direccion');
+    localStorage.setItem('dir', direccion.value);
     let barrio = document.getElementById('barrio');
     let zip = document.getElementById('zip');
     let usuario = JSON.parse(localStorage.getItem("usuario-formulario"));
@@ -257,17 +256,25 @@ function datosUrlPost(){
     //Obtengo los datos del formulario
     let usuario = JSON.parse(localStorage.getItem("usuario-formulario"));
     let nombre = usuario.name;
-    let direccion = document.getElementById('direccion');
+    let direccion = localStorage.getItem('dir');
+    console.log(direccion);
     let telefono = usuario.contact;
-    let metodoDePago = document.getElementById('metodoPago');
     //Creo un objeto DATA con la info obtenida
     let dataUsuario = {
         name : nombre,
         address : direccion,
-        contact : telefono,
-        payment : metodoDePago
+        contact : telefono
     }
-    DATA = dataUsuario;
+    console.log(dataUsuario);
+
+    fetch("http://localhost:3000/compra", {
+        method : 'POST', 
+        body : JSON.stringify(dataUsuario), 
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }).then(res => res.json())
+    
 }
 
 
@@ -313,12 +320,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
         precioConEnvio();
     });
 
-    /*****************DESAFIATE  Entrega 8***************/
-    fetch("http://localhost:3000/compra", {
-        method : 'POST', 
-        body : JSON.stringify(DATA), 
-        headers : {
-            'Content-Type' : 'application/json'
-        }
-    }).then(res => res.json())
 });

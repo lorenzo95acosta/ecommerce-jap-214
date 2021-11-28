@@ -107,7 +107,7 @@
 
   <!--Acá agrego el form para la info de envío-->
   <div class="container">
-    <form class="needs-validation" novalidate>
+    <form method="post" action="/compra" class="needs-validation" novalidate>
 
       <div class="form-group">
         <label for="direccion">Direccion</label>
@@ -188,7 +188,7 @@
         <!--Datos requeridos según el metodo de pago-->
       </div>
 
-      <button id="botonComprar" type="submit" class="btn btn-primary rounded-pill" onclick="mensajeCompraExitosa();">Confirmar</button>
+      <button id="botonComprar" type="button" class="btn btn-primary rounded-pill" onclick="mensajeCompraExitosa(); datosUrlPost();">Confirmar</button>
     </form>
 
 
